@@ -14,7 +14,7 @@ export default function Home() {
       <main className={styles.main}>
         <section className={utilStyles.headingMd}>
           <p>
-          Hello, I'm just the guy building this site.
+          Hello, I{"'"}m just the guy building this site.
           </p>
         </section>
       </main>
