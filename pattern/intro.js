@@ -1,26 +1,46 @@
 import React from "react";
 import Image from "../src/infra/myimage";
+import Linkedin from "../public/images/icon/linkedin.svg";
+import GitHub from "../public/images/icon/github.svg";
 import styled from "styled-components";
 
 const Title = styled.h1`
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.primary};
   text-align: center;
-  padding-top: 40vh;
+  margin: 0;
 `;
 
-const Wrap = styled.div`
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
+const SubTitle = styled.h2`
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.primary};
+  text-align: center;
+  margin: 0;
+`;
+
+const Background = styled.div`
+  position: relative;
+  width: 100%;
+  height: 800px;
+  ${"" /* background-position: 50% 50%; */}
+`;
+
+const TextIntro = styled.div`
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  transform: translate(50%, -50%);
+`;
+
+const Header = styled.header`
+  position: relative;
   overflow: hidden;
-  z-index: -1;
 `;
 
 function Intro(props) {
   return (
-    <>
-      <Wrap>
+    <Header>
+      <Background>
         <Image
           alt="Dots and lines"
           src="/images/background.png"
@@ -28,9 +48,23 @@ function Intro(props) {
           objectFit="cover"
           quality={100}
         />
-      </Wrap>
-      <Title>Factswrangler</Title>
-    </>
+      </Background>
+      <TextIntro className="red_box">
+        <Title>Factswrangler</Title>
+        <SubTitle>Data analyst | Data scientist</SubTitle>
+        <br/>
+        <hr />
+        <br/>
+        <ul>
+          <li>
+            <Linkedin />
+          </li>
+          <li>
+            <GitHub />
+          </li>
+        </ul>
+      </TextIntro>
+    </Header>
   );
 }
 
