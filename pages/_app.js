@@ -14,7 +14,16 @@ const GlobalStyle = createGlobalStyle`
   .red_box {
     border: solid red ;
 }
+
+  ul.inline {
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+  }
   
+  li.inline {
+    display: inline-block;    
+  }
 `;
 
 const theme = {

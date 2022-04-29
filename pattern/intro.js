@@ -55,11 +55,11 @@ function Intro(props) {
         <br/>
         <hr />
         <br/>
-        <ul>
-          <li>
+        <ul className="inline">
+          <li className="inline">
             <Linkedin />
           </li>
-          <li>
+          <li className="inline">
             <GitHub />
           </li>
         </ul>
