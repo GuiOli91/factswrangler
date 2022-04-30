@@ -5,6 +5,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .back_test {
@@ -15,15 +17,31 @@ const GlobalStyle = createGlobalStyle`
     border: solid red ;
 }
 
-  ul.inline {
+  .list-inline {
     padding-left: 0;
     list-style: none;
     text-align: center;
   }
   
-  li.inline {
-    display: inline-block;    
+  .list-inline-item {
+    display: inline-block;
+    font-size: 3rem;
+    
+   
   }
+
+  .linkedin:hover {
+    fill: #0A66C2;
+  }
+
+  .github:hover {
+    fill: #343690;
+  }
+
+  .list-inline-item:not(:last-child) {
+    margin-right: 2rem;
+  }
+
 `;
 
 const theme = {

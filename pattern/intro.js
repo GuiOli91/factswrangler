@@ -27,7 +27,7 @@ const Background = styled.div`
 
 const TextIntro = styled.div`
   position: absolute;
-  top: 40%;
+  top: 45%;
   right: 50%;
   transform: translate(50%, -50%);
 `;
@@ -49,18 +49,22 @@ function Intro(props) {
           quality={100}
         />
       </Background>
-      <TextIntro className="red_box">
+      <TextIntro>
         <Title>Factswrangler</Title>
         <SubTitle>Data analyst | Data scientist</SubTitle>
-        <br/>
+        <br />
         <hr />
-        <br/>
-        <ul className="inline">
-          <li className="inline">
-            <Linkedin />
+        <br />
+        <ul className="list-inline">
+          <li className="list-inline-item linkedin">
+            <a href="https://www.linkedin.com/in/goliveira91/" target="_blank">
+              <Linkedin />
+            </a>
           </li>
-          <li className="inline">
-            <GitHub />
+          <li className="list-inline-item github">
+            <a href="https://github.com/GuiOli91" target="_blank">
+              <GitHub />
+            </a>
           </li>
         </ul>
       </TextIntro>
