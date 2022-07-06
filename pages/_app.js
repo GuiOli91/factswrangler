@@ -9,6 +9,23 @@ const GlobalStyle = createGlobalStyle`
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
+  p {
+    line-height: 1.5em;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+    
+  }
+
   .back_test {
     background-color: rgba(66, 156, 63, 0.671);
 }
@@ -26,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
   .list-inline-item {
     display: inline-block;
     font-size: 3rem;
-    
+    margin-top: 5px;
    
   }
 
@@ -46,8 +63,19 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    primary: "#3E606F",
+    primary: "#193441",
+    second: "#3E606F",
+    third: "#91AA9D",
+    fourth: "#D1DBBD",
+    fifth: "#FCFFF5",
   },
+  font_colors:{
+    primary: "#FCFFF5",
+    second: "#FFFFFF",
+    third: "#000000",
+    fourth: "#000000",
+    fifth: "#193441",
+  }
 };
 
 export default function App({ Component, pageProps }) {
