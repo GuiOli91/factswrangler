@@ -15,12 +15,12 @@ const Section = styled.section`
 `;
 
 const SubTitle = styled.h2`
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.font_colors.fifth};
+  font-size: 2.5rem;
+  color: ${({ theme }) => theme.colors.second};
   text-align: left;
   margin: initial;
   font-style: italic;
-  font-weight: normal;
+  font-weight: bolder;
   @media (min-width: 50em) {
     grid-row: 1;
     grid-column: 1 / 3;
@@ -52,6 +52,9 @@ const Wrapper = styled.div`
 const Paragraph = styled.p`
   padding-left: 2em;
   padding-right: 2em;
+  font-size: 1.5rem;
+  color: ${({theme}) => theme.colors.primary};
+  font-weight: bold;
 `;
 
 const Maintext = styled.div`

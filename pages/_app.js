@@ -63,18 +63,18 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    primary: "#193441",
-    second: "#3E606F",
-    third: "#91AA9D",
-    fourth: "#D1DBBD",
-    fifth: "#FCFFF5",
+    primary: "#1A1A1A",
+    second: "#BF2719",
+    third: "#E35C2B",
+    fourth: "#024059",
+    fifth: "#024873",
   },
   font_colors:{
     primary: "#FCFFF5",
     second: "#FFFFFF",
-    third: "#000000",
+    third: "#BF2719",
     fourth: "#000000",
-    fifth: "#193441",
+    fifth: "#1A1A1A",
   }
 };
 
