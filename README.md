@@ -1,80 +1,63 @@
-# Example app with styled-components
+# FactsWrangler
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
-
-This example uses the Rust-based [SWC](https://nextjs.org/docs/advanced-features/compiler#styled-components) in Next.js for better performance than Babel.
-
-Currently, only the `ssr` and `displayName` transforms have been implemented. These two transforms are the main requirement for using `styled-components` in Next.js.
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Portfolio site for Guilherme Oliveira, a data engineer and analyst.
+Built with Next.js (App Router), Tailwind CSS v4 and MDX, and deployed on Vercel.
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (also type-checks)
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Where things live
 
-### Try it on CodeSandbox
+| What | Where |
+| --- | --- |
+| Your name, tagline, email, booking link, services, testimonials, about, experience | `site.config.ts` |
+| Projects (one file each) | `content/projects/*.mdx` |
+| Interactive demos | `components/demos/*.tsx` |
+| Components usable inside MDX | `components/mdx/index.tsx` |
+| Colours (light and dark) | `app/globals.css` (`--accent` changes the brand colour) |
+| CV | `public/cv.pdf` |
+| Project cover images | `public/projects/` |
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+## Add a project
 
-### Notes
+1. Copy `content/projects/_template.mdx` to `content/projects/my-project.mdx`.
+   The file name becomes the URL: `/projects/my-project`.
+2. Fill in the frontmatter (`title`, `summary` and `date` are required; everything else is optional).
+3. Write the case study in Markdown. You can use these components:
+   - `<Video src="https://www.loom.com/share/..." />` (YouTube, Loom or Vimeo)
+   - `<Callout title="Key insight">...</Callout>`
+   - `<Columns><Card title="Before">...</Card><Card title="After">...</Card></Columns>`
+   - any registered demo, e.g. `<ForecastDemo />`
+4. Set `draft: true` while you're working on it. Drafts show in `npm run dev` but not in production.
 
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
+If you set `video:` in the frontmatter, the walkthrough is shown at the top of the page in place of the cover.
 
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
+## Add an interactive demo
 
-**components/StyledLink.js**
+1. Create `components/demos/my-demo.tsx`:
 
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
+   ```tsx
+   "use client";
+   import { useState } from "react";
+   import { DemoFrame } from "../mdx/blocks";
 
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
+   export function MyDemo() {
+     const [n, setN] = useState(0);
+     return (
+       <DemoFrame title="My demo">
+         <button onClick={() => setN(n + 1)}>Clicked {n} times</button>
+       </DemoFrame>
+     );
+   }
+   ```
 
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+2. Register it in `components/mdx/index.tsx`.
+3. Use `<MyDemo />` in any project's MDX and set `interactive: true` in its frontmatter.
 
-  &:hover {
-    color: #40a9ff;
-  }
+## Deploy
 
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
-
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
-
-</details>
+Push to GitHub, import the repo at [vercel.com/new](https://vercel.com/new) and accept the defaults.
+Every push to `main` deploys automatically.

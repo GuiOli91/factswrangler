@@ -32,3 +32,13 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# personal CV source (contains contact details)
+cv.md
+
+# original, full-resolution photos (web versions live in /public)
+assets/originals/

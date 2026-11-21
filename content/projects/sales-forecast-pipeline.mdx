@@ -1,0 +1,49 @@
+---
+# EXAMPLE CONTENT: replace with a real project
+title: "Automated sales forecasting pipeline"
+summary: "Replaced a monthly, spreadsheet-based forecast with a daily pipeline and a seasonal model that sales managers actually trust."
+date: 2026-06-01
+category: "Data engineering"
+tags: ["Python", "dbt", "BigQuery", "Airflow"]
+featured: true
+interactive: true
+client: "Retail distributor (example)"
+role: "Data engineer & analyst"
+duration: "8 weeks"
+results:
+  - { value: "6 h → 0", label: "manual work per month" }
+  - { value: "4.8%", label: "forecast error (was ~15%)" }
+  - { value: "Daily", label: "refresh, previously monthly" }
+---
+
+## The problem
+
+Every month an analyst exported sales from the ERP, pasted them into a 40-tab spreadsheet and extended a
+trend line by hand. It took most of a day, broke whenever a column moved, and nobody quite believed the numbers.
+
+## What I built
+
+<Columns>
+  <Card title="Before">ERP export → Excel → copy-paste → linear trend by eye → PDF by email.</Card>
+  <Card title="After">ERP → BigQuery (daily) → dbt models + tests → seasonal forecast → dashboard.</Card>
+</Columns>
+
+1. **Ingestion:** a scheduled job loads orders from the ERP API into BigQuery every night.
+2. **Modelling:** dbt turns raw orders into clean monthly sales per region, with tests for duplicates and gaps.
+3. **Forecasting:** a trend + seasonality model, compared against simpler baselines with a backtest.
+
+## Try it: why the model choice matters
+
+Switch between methods below. A plain moving average ignores seasonality, so it misses every peak.
+The backtest error updates as you change settings, just like the one I used to choose the model.
+
+<ForecastDemo />
+
+<Callout title="Key takeaway">
+  The best model wasn't the fanciest one. It was the simplest one that beat the baselines on a fair backtest
+  *and* that the sales team could understand.
+</Callout>
+
+## The result
+
+The forecast now refreshes daily with no manual steps, and error dropped from roughly 15% to under 5%.
