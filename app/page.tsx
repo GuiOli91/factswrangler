@@ -20,38 +20,63 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute -top-40 right-[-10%] size-[36rem] rounded-full bg-accent opacity-15 blur-3xl"
         />
-        <Container className="relative pb-16 pt-20 sm:pb-24 sm:pt-28">
-          {site.available && (
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 text-xs font-medium">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-              </span>
-              Available for new projects
-            </p>
-          )}
-          <p className="text-lg text-muted">Hi, I&apos;m {site.firstName} 👋 · {site.role}</p>
-          <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-balance sm:text-6xl">
-            {/* the word "facts" in the tagline gets the accent colour */}
-            {site.tagline.split(/(facts)/).map((part, i) =>
-              part === "facts" ? (
-                <span key={i} className="text-accent">
-                  {part}
+        <Container className="relative grid items-center gap-12 pb-16 pt-20 sm:pb-24 sm:pt-28 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            {site.available && (
+              <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 text-xs font-medium">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
                 </span>
-              ) : (
-                part
-              ),
+                Available for new projects
+              </p>
             )}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{site.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={site.bookingUrl}>
-              <Icon name="calendar" className="size-4" /> Book a free 30-min call
-            </ButtonLink>
-            <ButtonLink href="#work" variant="secondary">
-              See my work <Icon name="arrowRight" className="size-4" />
-            </ButtonLink>
+            <p className="text-lg text-muted">Hi, I&apos;m {site.firstName} 👋 · {site.role}</p>
+            <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-balance sm:text-6xl">
+              {/* the word "facts" in the tagline gets the accent colour */}
+              {site.tagline.split(/(facts)/).map((part, i) =>
+                part === "facts" ? (
+                  <span key={i} className="text-accent">
+                    {part}
+                  </span>
+                ) : (
+                  part
+                ),
+              )}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{site.intro}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href={site.bookingUrl}>
+                <Icon name="calendar" className="size-4" /> Book a free 30-min call
+              </ButtonLink>
+              <ButtonLink href="#work" variant="secondary">
+                See my work <Icon name="arrowRight" className="size-4" />
+              </ButtonLink>
+            </div>
           </div>
+
+          {site.heroPhoto && (
+            <div className="relative mx-auto hidden w-full max-w-sm lg:block">
+              <div aria-hidden className="absolute -inset-3 translate-x-4 translate-y-4 rounded-[2rem] bg-accent/20" />
+              <Image
+                src={site.heroPhoto}
+                alt={`Portrait of ${site.owner}`}
+                width={800}
+                height={1000}
+                priority
+                sizes="(min-width: 1024px) 384px, 0px"
+                className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl shadow-black/10 ring-1 ring-line"
+              />
+              <div className="absolute -bottom-5 -left-6 rounded-2xl border border-line bg-card px-4 py-3 shadow-xl shadow-black/10">
+                <p className="flex items-center gap-1.5 text-sm font-semibold">
+                  <Icon name="mapPin" className="size-4 text-accent" /> {site.location}
+                </p>
+                <p className="mt-0.5 font-mono text-xs text-muted">
+                  {site.about.languages.map((l) => l.code).join(" · ")}
+                </p>
+              </div>
+            </div>
+          )}
         </Container>
       </section>
 

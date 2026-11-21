@@ -17,6 +17,8 @@ export const site = {
   location: "Vienna, Austria",
   /** Headshot in /public, or "" to hide. */
   photo: "/guilherme.jpg",
+  /** Large portrait shown in the hero on desktop, or "" to hide. */
+  heroPhoto: "/guilherme-portrait.jpg",
   tagline: "I turn messy data into facts you can act on.",
   intro:
     "I build data pipelines, Lakehouse architectures and Digital Twins, from PLCs and sensors on the shop floor to dashboards and ML models in the cloud. I'm a Control & Automation Engineer by training, so I treat operational problems as software problems.",
@@ -88,9 +90,9 @@ export const site = {
       { group: "Tools", items: ["Git", "Bash", "Tableau", "Alteryx", "Jupyter", "R"] },
     ],
     languages: [
-      { name: "Portuguese", level: "Native" },
-      { name: "English", level: "C1" },
-      { name: "German", level: "B2" },
+      { name: "Portuguese", code: "PT", level: "Native" },
+      { name: "English", code: "EN", level: "C1" },
+      { name: "German", code: "DE", level: "B2" },
     ],
     experience: [
       {
