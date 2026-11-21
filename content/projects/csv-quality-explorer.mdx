@@ -1,0 +1,26 @@
+---
+# EXAMPLE CONTENT: replace with a real project
+title: "CSV data-quality explorer"
+summary: "A browser-only tool that profiles any CSV in seconds: column types, missing values, bad numbers and distributions."
+date: 2026-03-10
+category: "Demo"
+tags: ["TypeScript", "React", "Data quality"]
+featured: true
+interactive: true
+role: "Side project"
+---
+
+## Why
+
+The first hour of every data project is the same: open the file, scroll, and ask *"what's actually in here?"*
+This tool answers that instantly, and nothing is uploaded to a server.
+
+<CsvExplorer />
+
+## How it works
+
+- A small streaming-friendly CSV parser that handles quoted fields (`"3,10"` above is caught as *not numeric*).
+- Each column is typed automatically: if 80% or more of its values parse as numbers, it's numeric.
+- Missing and invalid values are counted per column, because those are what break pipelines downstream.
+
+<Callout>Try uploading one of your own CSV files. It never leaves your browser.</Callout>
