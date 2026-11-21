@@ -32,6 +32,7 @@ export function Footer() {
       <Container className="flex flex-col items-center justify-between gap-4 text-sm text-muted sm:flex-row">
         <p>
           © {new Date().getFullYear()} {site.owner} · {site.brand}
+          {site.photoCredit && <span className="block text-xs sm:inline"> · {site.photoCredit}</span>}
         </p>
         <Socials />
       </Container>

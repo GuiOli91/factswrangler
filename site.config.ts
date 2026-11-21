@@ -19,6 +19,8 @@ export const site = {
   photo: "/guilherme.jpg",
   /** Large portrait shown in the hero on desktop, or "" to hide. */
   heroPhoto: "/guilherme-portrait.jpg",
+  /** Shown in the footer; set to "" to hide. */
+  photoCredit: "Portrait photos: Zsolt Marton",
   tagline: "I turn messy data into facts you can act on.",
   intro:
     "I build data pipelines, Lakehouse architectures and Digital Twins, from PLCs and sensors on the shop floor to dashboards and ML models in the cloud. I'm a Control & Automation Engineer by training, so I treat operational problems as software problems.",

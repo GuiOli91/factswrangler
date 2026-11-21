@@ -142,6 +142,7 @@ export default function Home() {
                   alt={`Portrait of ${site.owner}`}
                   width={144}
                   height={144}
+                  title={site.photoCredit || undefined}
                   className="size-28 shrink-0 rounded-2xl object-cover ring-1 ring-line sm:size-36"
                 />
               )}
